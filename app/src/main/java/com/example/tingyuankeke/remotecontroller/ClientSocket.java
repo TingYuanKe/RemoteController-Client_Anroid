@@ -49,7 +49,7 @@ public class ClientSocket extends AsyncTask<String, Void, String> {
 
         try {
             if (streamOut != null)  streamOut.close();
-            if (socket    != null)  socket.close();
+            ifz (socket    != null)  socket.close();
             connected= false;
         }
         catch(IOException ioe) {
