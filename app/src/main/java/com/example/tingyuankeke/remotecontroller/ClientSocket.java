@@ -7,7 +7,7 @@ import java.io.*;
 import android.os.AsyncTask;
 
 /**
- * Created by TingYuanKeke on 2015/11/09.
+ * Created by TingYuanKeklle on 2015/11/09.
  */
 public class ClientSocket extends AsyncTask<String, Void, String> {
     private Socket socket = null;
@@ -49,7 +49,7 @@ public class ClientSocket extends AsyncTask<String, Void, String> {
 
         try {
             if (streamOut != null)  streamOut.close();
-            ifz (socket    != null)  socket.close();
+            if (socket    != null)  socket.close();
             connected= false;
         }
         catch(IOException ioe) {
