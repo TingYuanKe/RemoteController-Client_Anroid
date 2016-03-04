@@ -7,7 +7,7 @@ import java.io.*;
 import android.os.AsyncTask;
 
 /**
- * Created by TingYuanKeke on 2015/11/09.
+ * Created by TingYuanKeklle on 2015/11/09.
  */
 public class ClientSocket extends AsyncTask<String, Void, String> {
     private Socket socket = null;
