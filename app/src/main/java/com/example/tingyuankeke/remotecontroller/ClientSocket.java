@@ -27,7 +27,7 @@ public class ClientSocket extends AsyncTask<String, Void, String> {
         if(connected) {
             try
             {
-                //Convert the string into a byte array for C# to read
+                //Convert the string into a byte array for C# to readaaa
                 //將STRING轉換成byte讓C#讀取
                 byte[] msgBytes = msg.getBytes();
                 //將資料傳送
