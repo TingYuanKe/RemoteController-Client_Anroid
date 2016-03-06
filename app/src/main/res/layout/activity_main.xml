@@ -100,9 +100,8 @@
             android:id="@+id/tabs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-     android:layout_alignParentTop="true"
-     android:layout_alignParentStart="true"
-     android:layout_marginTop="151dp" />
+     android:layout_alignParentBottom="true"
+     android:layout_alignParentStart="true" />
 
     />
     <ViewPager

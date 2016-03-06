@@ -7,7 +7,7 @@ import java.io.*;
 import android.os.AsyncTask;
 
 /**
- * Created by TingYuanKeklle on 2015/11/09.
+ * Created by TingYuanKeke on 2015/11/09.
  */
 public class ClientSocket extends AsyncTask<String, Void, String> {
     private Socket socket = null;
@@ -27,7 +27,7 @@ public class ClientSocket extends AsyncTask<String, Void, String> {
         if(connected) {
             try
             {
-                //Convert the string into a byte array for C# to readaaa
+                //Convert the string into a byte array for C# to read
                 //將STRING轉換成byte讓C#讀取
                 byte[] msgBytes = msg.getBytes();
                 //將資料傳送
