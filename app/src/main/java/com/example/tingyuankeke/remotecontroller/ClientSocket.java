@@ -1,46 +1,49 @@
 //RepeatListener為繼承於OnClickListener的自刻類別
 //用於實現點擊長按的連續點擊功能
 package com.example.tingyuankeke.remotecontroller;
-import java.net.*;
-import java.io.*;
 
 import android.os.AsyncTask;
+
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.Socket;
+import java.net.UnknownHostException;
+import java.util.logging.SocketHandler;
 
 /**
  * Created by TingYuanKeklle on 2015/11/09.
  */
 public class ClientSocket extends AsyncTask<String, Void, String> {
+    public String serverName;
+    public boolean connected = false;
     private Socket socket = null;
     private DataOutputStream streamOut = null;
-    private String serverName;
+    private SocketHandler SocketHandler;
     private int serverPort;
-    public boolean connected = false;
 
-    public ClientSocket(String server, int port)
-    {
+
+    public ClientSocket(String server, int port) {
         serverName = server;
         serverPort = port;
     }
 
     public void sendMessage(String msg) {
 
-        if(connected) {
-            try
-            {
+        if (connected) {
+            try {
                 //Convert the string into a byte array for C# to readaaa
                 //將STRING轉換成byte讓C#讀取
                 byte[] msgBytes = msg.getBytes();
                 //將資料傳送
                 streamOut.write(msgBytes);
                 streamOut.flush();
-            }
-            catch(IOException ioe) {
+            } catch (IOException ioe) {
                 System.out.println("Sending error: " + ioe.getMessage());
             }
         }
     }
-    private void start() throws IOException
-    {
+
+    private void start() throws IOException {
         streamOut = new DataOutputStream(socket.getOutputStream());
 
     }
@@ -48,11 +51,10 @@ public class ClientSocket extends AsyncTask<String, Void, String> {
     public void stop() {
 
         try {
-            if (streamOut != null)  streamOut.close();
-            if (socket    != null)  socket.close();
-            connected= false;
-        }
-        catch(IOException ioe) {
+            if (streamOut != null) streamOut.close();
+            if (socket != null) socket.close();
+            connected = false;
+        } catch (IOException ioe) {
             System.out.println("Error closing ...");
         }
     }
@@ -68,14 +70,11 @@ public class ClientSocket extends AsyncTask<String, Void, String> {
             System.out.println("Connected: " + socket);
             connected = true;
             start();
-        }
-        catch(UnknownHostException uhe) {
+        } catch (UnknownHostException uhe) {
             System.out.println("Host unknown: " + uhe.getMessage());
-        }
-        catch(IOException ioe) {
+        } catch (IOException ioe) {
             System.out.println("Unexpected IO exception: " + ioe.getMessage());
-        }
-        catch(Exception fe) {
+        } catch (Exception fe) {
             System.out.println("Unexpected fatal exception: " + fe);
         }
 
@@ -83,13 +82,14 @@ public class ClientSocket extends AsyncTask<String, Void, String> {
         // TODO Auto-generated method stub
         return null;
     }
-    public boolean Connected(){
-        if(connected = true){
-            return true;
-        }
-        else{
-            return false;
-        }
 
+    public boolean Connected() {
+        return connected;
     }
+
+    public String getServerName() {
+        return serverName;
+    }
+
+
 }
