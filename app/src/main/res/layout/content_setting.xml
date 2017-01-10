@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:weightSum="1"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.tingyuankeke.remotecontroller.Setting"
+    tools:showIn="@layout/activity_activity_setting">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="3dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+
+        android:layout_marginTop="3dp"
+
+        android:layout_weight="0.36"
+        android:text="  滑鼠設置"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/grey3"
+        android:textSize="20dp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView"
+        android:layout_marginBottom="3dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="3dp"
+        android:background="@color/grey1" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/imageView2"
+        android:layout_below="@+id/imageView2"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+
+        android:layout_weight="0.36"
+
+        android:text="滑鼠靈敏度"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/grey1"
+        android:textSize="25dp" />
+
+    <SeekBar
+        android:id="@+id/seekBar_XY"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+
+        android:layout_alignEnd="@+id/imageView2"
+        android:layout_alignStart="@+id/textView1"
+        android:layout_below="@+id/imageView2"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="29dp"
+        android:indeterminate="false"
+        android:max="2" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/imageView2"
+        android:layout_below="@+id/seekBar_XY"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+
+        android:layout_weight="0.36"
+
+        android:text="滾輪靈敏度"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/grey1"
+        android:textSize="25dp" />
+
+    <SeekBar
+        android:id="@+id/seekBar5_UPDOWN"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+
+        android:layout_alignEnd="@+id/seekBar_XY"
+        android:layout_alignStart="@+id/textView3"
+        android:layout_below="@+id/textView3"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="3dp"
+        android:indeterminate="false"
+        android:max="4" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/seekBar5_UPDOWN"
+        android:layout_marginBottom="3dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="3dp"
+        android:background="@color/grey1" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/imageView2"
+        android:layout_below="@+id/imageView3"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_weight="0.36"
+        android:text="其他"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/grey3"
+        android:textSize="20dp" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView4"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+
+        android:layout_marginTop="3dp"
+        android:background="@color/grey1" />
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView4"
+        android:layout_below="@+id/imageView4"
+        android:layout_marginTop="3dp"
+
+        android:checked="false"
+        android:text="禁止鎖屏"
+        android:textColor="@color/grey1"
+        android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/txv_xy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView1"
+        android:layout_alignEnd="@+id/switch1"
+        android:layout_below="@+id/imageView2"
+        android:gravity="center"
+        android:textColor="@color/grey2"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/txv_updown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView3"
+        android:layout_alignStart="@+id/txv_xy"
+        android:gravity="center"
+        android:textColor="@color/grey2"
+        android:textSize="15dp" />
+
+</RelativeLayout>

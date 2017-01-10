@@ -1,0 +1,52 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="horizontal"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+    tools:context=".KeyboardControll">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bar_height"
+        android:background="@color/toolbar"
+        android:titleTextColor="@color/grey1"
+        app:layout_scrollFlags="scroll|enterAlways"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <com.example.tingyuankeke.remotecontroller.NonSwipeableViewPager
+        android:id="@+id/view_Changer"
+        android:layout_width="321dp"
+        android:layout_height="433dp"
+        android:layout_above="@+id/tab_Change"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/toolbar"
+        android:scrollbars="none" />
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tab_Change"
+        android:layout_width="441dp"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_gravity="bottom"
+        android:fillViewport="false"
+        app:tabGravity="fill"
+        app:tabMode="fixed" />
+
+    <ImageButton
+        android:id="@+id/btn_setting"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/toolbar"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/toolbar"
+        android:src="@drawable/ic_setting" />
+
+</RelativeLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#000</color>
+    <color name="grey3">#999</color>
+    <color name="grey2">#aaa</color>
+    <color name="grey1">#ccc</color>
+    <color name="white">#fff</color>
+    <color name="toolbar">#3D437E</color>
+    <color name="backgroundLight">#54587F</color>
+    <color name="background">#25294F</color>
+    <color name="mousepad">#252239</color>
+    <color name="buttomclick">#7DA6AA</color>
+    <color name="colorPrimary">#125688</color>
+    <color name="colorPrimaryDark">#125688</color>
+    <color name="colorAccent">#c8e8ff</color>
+    <color name="bar_text_color">#FEFEFE</color>
+
+</resources>
