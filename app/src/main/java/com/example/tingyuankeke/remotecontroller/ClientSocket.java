@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.logging.SocketHandler;
@@ -15,9 +16,11 @@ import java.util.logging.SocketHandler;
  */
 public class ClientSocket extends AsyncTask<String, Void, String> {
     public String serverName;
-    public boolean connected = false;
+    public static boolean connected = false;
     private Socket socket = null;
     private DataOutputStream streamOut = null;
+
+    private PrintWriter out ;
     private SocketHandler SocketHandler;
     private int serverPort;
 
@@ -27,15 +30,30 @@ public class ClientSocket extends AsyncTask<String, Void, String> {
         serverPort = port;
     }
 
+    public boolean Heartbeat(){
+
+
+        try{
+            socket.sendUrgentData(0xFF);
+            System.out.println("keep running~~~");
+            return true;
+        }catch(Exception ex){
+            System.out.println("Disconnected!!!");
+            stop();
+            return false;
+
+        }
+    }
     public void sendMessage(String msg) {
 
         if (connected) {
             try {
-                //Convert the string into a byte array for C# to readaaa
+                //Convert the string into a byte array for C# to read
                 //將STRING轉換成byte讓C#讀取
                 byte[] msgBytes = msg.getBytes();
                 //將資料傳送
                 streamOut.write(msgBytes);
+
                 streamOut.flush();
             } catch (IOException ioe) {
                 System.out.println("Sending error: " + ioe.getMessage());
@@ -45,15 +63,16 @@ public class ClientSocket extends AsyncTask<String, Void, String> {
 
     private void start() throws IOException {
         streamOut = new DataOutputStream(socket.getOutputStream());
+         out = new PrintWriter(socket.getOutputStream(), true);
 
     }
 
     public void stop() {
-
         try {
             if (streamOut != null) streamOut.close();
             if (socket != null) socket.close();
             connected = false;
+            if(out != null) out.close();
         } catch (IOException ioe) {
             System.out.println("Error closing ...");
         }
@@ -64,12 +83,15 @@ public class ClientSocket extends AsyncTask<String, Void, String> {
         System.out.println("Establishing connection to server. Please wait ...");
 
         try {
+
             System.out.println("Attempting to connect to " + serverName + ":" + serverPort);
             //連接到C# Server端
             socket = new Socket(serverName, serverPort);
-            System.out.println("Connected: " + socket);
-            connected = true;
+            connected=true;
+            System.out.println("Connected~: " + socket);
+
             start();
+
         } catch (UnknownHostException uhe) {
             System.out.println("Host unknown: " + uhe.getMessage());
         } catch (IOException ioe) {
@@ -87,9 +109,7 @@ public class ClientSocket extends AsyncTask<String, Void, String> {
         return connected;
     }
 
-    public String getServerName() {
-        return serverName;
-    }
+
 
 
 }

@@ -1,6 +1,9 @@
 package fragment;
 
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -22,6 +25,7 @@ public class SystemControll extends Fragment {
     private ImageButton btn_increase, btn_decrease, btn_mute,
             btn_desktop, btn_sleep, btn_shutdown;
     private SeekBar skb_volume;
+
 
     public SystemControll() {
         // Required empty public constructor
@@ -117,9 +121,23 @@ public class SystemControll extends Fragment {
                 ((MainActivity) getActivity()).getClient().sendMessage("4#0#0");
             }
         });
+        btn_shutdown.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder shutdown = new AlertDialog.Builder(getActivity());
+                shutdown.setMessage("Are you sure to SHUTDOWN PC?")
+                        .setTitle("WARNING!")
+                        .setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
 
+                            }
+                        })
+                        .setNegativeButton("NO",null)
+                        .show();
+            }
+        });
     }
-
 
     @Override
     public void onStop() {

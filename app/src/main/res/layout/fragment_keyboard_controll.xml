@@ -16,10 +16,10 @@
     <Button
         android:id="@+id/btn_send"
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
+        android:layout_width="386dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="right"
         android:background="@color/grey2"
-        android:text="Send"
+        android:text="BackSpace"
         android:textColor="@color/black" />
 </LinearLayout>
