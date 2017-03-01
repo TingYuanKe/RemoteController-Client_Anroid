@@ -1,5 +1,10 @@
+
 # RemoteController-Client_Anroid
 An android APP to remote your laptop by android device
+
+
+Here is Server-side project, if want to go Client-side<br>
+  see:https://github.com/TingYuanKe/RemoteController-Server_PC/edit/m
 #Image
 <img src="http://i.imgur.com/r0ZklFR.jpg" width="22%" height="22%">
 <img src="http://i.imgur.com/lRzkb2x.jpg" width="22%" height="22%">
@@ -54,3 +59,8 @@ An android APP to remote your laptop by android device
  - PowerPoint Controll.
  - Mechanism to detect if the socket is disconnected, and reconnected with both size application.
  - Fix keyboard control with some bug that may get null input, and develop to support Chinese characters.
+ 
+#Contact me 
+This application is a student-level project.The code may not be very clean and readable.<br>
+It's welcome to contact me if you have any question<br>
+               TingYuan-Ke:prelude0390@hotmail.com
