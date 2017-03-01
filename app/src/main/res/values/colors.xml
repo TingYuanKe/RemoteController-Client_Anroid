@@ -6,6 +6,7 @@
     <color name="grey1">#ccc</color>
     <color name="white">#fff</color>
     <color name="toolbar">#3D437E</color>
+    <color name="footer">#323772</color>
     <color name="backgroundLight">#54587F</color>
     <color name="background">#25294F</color>
     <color name="mousepad">#252239</color>

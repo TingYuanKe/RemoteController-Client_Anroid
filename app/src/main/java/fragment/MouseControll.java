@@ -36,11 +36,8 @@ public class MouseControll extends Fragment {
                 System.out.println("MouseControll  see");
                 ((MainActivity) getActivity()).getClient().sendMessage("10#0#0");
             }
-
         }
-
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

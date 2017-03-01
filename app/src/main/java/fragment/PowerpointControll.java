@@ -15,11 +15,9 @@ import com.example.tingyuankeke.remotecontroller.R;
  */
 public class PowerpointControll extends Fragment {
 
-
     public PowerpointControll() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -32,7 +30,6 @@ public class PowerpointControll extends Fragment {
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
         if (isVisibleToUser) {
-            System.out.println("PowerpointControll  see");
             ((MainActivity) getActivity()).getClient().sendMessage("12#0#0");
         }
 
@@ -41,7 +38,6 @@ public class PowerpointControll extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        System.out.println("PowerpointControll onResume");
 
     }
 
@@ -49,13 +45,11 @@ public class PowerpointControll extends Fragment {
     public void onStart() {
         super.onStart();
 
-        System.out.println("PowerpointControll onStart");
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        System.out.println("PowerpointControll onStop");
 
     }
 }

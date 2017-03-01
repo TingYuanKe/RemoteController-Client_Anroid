@@ -11,6 +11,12 @@
         <item name="android:colorAccent">@color/colorAccent</item>
     </style>
 
+        <style name="AlertDialogCustom" parent="Base.Theme.AppCompat.Dialog.Alert">
+            <item name="android:textColor">#EEEEEE</item>
+            <item name="android:background">@color/footer</item>
+            <item name="android:editTextColor">#EEEEEE</item>
+
+        </style>
     <style name="AppTheme.NoActionBar.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.NoActionBar.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />

@@ -68,14 +68,14 @@ public class KeyboardControll extends Fragment {
         txv_input.setOnKeyListener(new TextView.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
-                //You can identify which key pressed buy checking keyCode value with KeyEvent.KEYCODE_
-//                    switch (keyCode) {
-//                        case KeyEvent.KEYCODE_DEL:
-//                            ((MainActivity) getActivity()).getClient().sendMessage("2#");
-//                            break;
-//                        case KeyEvent.KEYCODE_BUTTON_A:
-//                            ((MainActivity) getActivity()).getClient().sendMessage("a#");
-//                }
+//                You can identify which key pressed buy checking keyCode value with KeyEvent.KEYCODE_
+                    switch (keyCode) {
+                        case KeyEvent.KEYCODE_DEL:
+                            ((MainActivity) getActivity()).getClient().sendMessage("2#");
+                            break;
+                        case KeyEvent.KEYCODE_BUTTON_A:
+                            ((MainActivity) getActivity()).getClient().sendMessage("a#");
+                }
                 if (keyCode == KeyEvent.KEYCODE_DEL) {
                     ((MainActivity) getActivity()).getClient().sendMessage("2#");
                 }
@@ -83,7 +83,6 @@ public class KeyboardControll extends Fragment {
             }
         });
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

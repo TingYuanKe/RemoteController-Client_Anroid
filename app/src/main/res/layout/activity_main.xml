@@ -12,7 +12,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/bar_height"
-        android:background="@color/toolbar"
+        android:background="@color/footer"
         android:titleTextColor="@color/grey1"
         app:layout_scrollFlags="scroll|enterAlways"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
@@ -46,7 +46,7 @@
         android:layout_alignBottom="@+id/toolbar"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
-        android:background="@color/toolbar"
+        android:background="@color/footer"
         android:src="@drawable/ic_setting" />
 
 </RelativeLayout>

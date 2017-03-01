@@ -35,16 +35,24 @@
             android:layout_width="wrap_content"
             android:layout_height="62dp"
             android:layout_weight="0.49"
-
             android:enabled="true"
             android:text="@string/btn_left"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+
+            android:startColor="#449def"
+            android:centerColor="#2f6699"
+            android:endColor="#449def"
+            android:angle="270"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.2"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:startColor="#449def"
+            android:centerColor="#2f6699"
+            android:endColor="#449def"
+            android:angle="270">
 
             <Button
                 android:id="@+id/btn_scrollup"
@@ -52,7 +60,12 @@
                 android:layout_height="match_parent"
                 android:backgroundTint="@color/buttomclick"
                 android:clickable="true"
-                android:text="@string/btn_scrollup" />
+                android:text="@string/btn_scrollup"
+                android:startColor="#449def"
+                android:centerColor="#2f6699"
+                android:endColor="#449def"
+                android:angle="270"
+                />
 
             <Button
                 android:id="@+id/btn_scrolldown"
@@ -60,7 +73,11 @@
                 android:layout_height="match_parent"
                 android:backgroundTint="@color/buttomclick"
                 android:clickable="true"
-                android:text="@string/btn_scrolldown" />
+                android:text="@string/btn_scrolldown"
+                android:startColor="#449def"
+                android:centerColor="#2f6699"
+                android:endColor="#449def"
+                android:angle="270"/>
         </LinearLayout>
 
         <Button

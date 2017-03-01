@@ -1,5 +1,5 @@
 package com.example.tingyuankeke.remotecontroller;
-
+import android.os.Debug;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -55,25 +55,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
-
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        toolbar.setTitle("MouseControll");
-
-        btn_setting = (ImageButton) findViewById(R.id.btn_setting);
-        btn_setting.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Setting.class);
-                startActivity(intent);
-            }
-        });
-
-        viewPager = (NonSwipeableViewPager) findViewById(R.id.view_Changer);
-//        viewPager.setOnTouchListener((View.OnTouchListener) this);
-        setupViewPager(viewPager);
-        tabLayout = (TabLayout) findViewById(R.id.tab_Change);
-        tabLayout.setupWithViewPager(viewPager);
+        setupView();
         setupTabIcons();
         ConnectCheck();
 
@@ -85,43 +67,48 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         super.onResume();
     }
 
-    private void TCP_Heartbeat() {
-        if (getClient().Heartbeat()) {
-            System.out.println("All is well~~");
-        } else {
-            if (go) {
-                getClient().stop();
-                go = false;
-                this.runOnUiThread(new Runnable() {
-                    public void run() {
-                        final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                        builder.setCancelable(false);
-                        builder.setTitle("哎呀~好像沒有連上喔\"");
-                        builder.setPositiveButton("Try", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                go = false;
-                                ConnectCheck();
-                            }
-                        });
-                        builder.show();
-                    }
-                });
+//    private void TCP_Heartbeat() {
+//        if (getClient().Heartbeat()) {
+//            System.out.println("All is well~~");
+//        } else {
+//            if (go) {
+//                getClient().stop();
+//                go = false;
+//                this.runOnUiThread(new Runnable() {
+//                    public void run() {
+//                        final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+//                        builder.setCancelable(false);
+//                        builder.setTitle("哎呀~好像沒有連上喔\"");
+//                        builder.setPositiveButton("Try", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int which) {
+//                                go = false;
+//                                ConnectCheck();
+//                            }
+//                        });
+//                        builder.show();
+//                    }
+//                });
+//            }
+//        }
+//    }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
 
-            }
-        }
     }
 
     public void ConnectCheck() {
         //建立一個POP OUT視窗要求使用者輸入IP Address
-        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this,R.style.AlertDialogCustom);
         builder.setCancelable(false);
         builder.setTitle("請輸入Server IP位置");
 
         // 設定開始畫面Input
         final EditText input = new EditText(this);
         input.setInputType(InputType.TYPE_CLASS_PHONE);
+        input.setTextColor(getResources().getColor(R.color.white));
         input.setText("192.168.");
         // 建立開始畫面Connect Button
         this.runOnUiThread(new Runnable() {
@@ -132,16 +119,12 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                             public void onClick(DialogInterface dialog, int which) {
                                 //建立與client端地連線
                                 connectClient(input.getText().toString());
-
                                 if (go == false) //returns true if internet available
                                 {
                                     Toast.makeText(MainActivity.this, "唉呦  好像沒有連上喔", Toast.LENGTH_LONG).show();
                                     ConnectCheck();
-
-
                                 } else {
                                     Toast.makeText(MainActivity.this, "連上啦!", Toast.LENGTH_LONG).show();
-
                                     timer.schedule(new TimerTask() {
                                         @Override
                                         public void run() {
@@ -150,7 +133,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                                                 @Override
                                                 public void run() {
                                                     if (go) {
-//                                                       TCP_Heartbeat();
                                                     }
                                                 }
                                             }).start();
@@ -165,12 +147,9 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                     public void onShow(DialogInterface dialog) {
                     }
                 });
-                builder.show();
-
+                builder.show().getWindow().setLayout(1000,600);
             }
         });
-
-
     }
 
     public ClientSocket getClient() {
@@ -179,6 +158,26 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
     public void setClient(ClientSocket client) {
         this.client = client;
+    }
+
+    private void setupView(){
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setTitle("MouseControll");
+        btn_setting = (ImageButton) findViewById(R.id.btn_setting);
+        btn_setting.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Setting.class);
+                startActivity(intent);
+            }
+        });
+        viewPager = (NonSwipeableViewPager) findViewById(R.id.view_Changer);
+//        viewPager.setOnTouchListener((View.OnTouchListener) this);
+        setupViewPager(viewPager);
+        tabLayout = (TabLayout) findViewById(R.id.tab_Change);
+        tabLayout.setupWithViewPager(viewPager);
+
     }
 
     private void setupTabIcons() {
@@ -206,7 +205,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
     private void connectClient(String ip) {
         //新增一個ClientSocket為client
-
         setClient(new ClientSocket(ip, 8221));
         //將client連  線設定為背景執行
         getClient().execute();

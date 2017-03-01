@@ -25,8 +25,6 @@ public class SystemControll extends Fragment {
     private ImageButton btn_increase, btn_decrease, btn_mute,
             btn_desktop, btn_sleep, btn_shutdown;
     private SeekBar skb_volume;
-
-
     public SystemControll() {
         // Required empty public constructor
     }
