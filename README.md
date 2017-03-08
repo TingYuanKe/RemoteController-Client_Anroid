@@ -4,7 +4,7 @@ An android APP to remote your laptop by android device
 
 
 Here is Server-side project, if want to go Client-side<br>
-  see:https://github.com/TingYuanKe/RemoteController-Server_PC/edit/m
+  see:https://github.com/TingYuanKe/RemoteController-Server_PC/
 #Image
 <img src="http://i.imgur.com/r0ZklFR.jpg" width="22%" height="22%">
 <img src="http://i.imgur.com/lRzkb2x.jpg" width="22%" height="22%">
